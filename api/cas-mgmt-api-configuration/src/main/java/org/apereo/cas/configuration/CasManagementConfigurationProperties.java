@@ -1,5 +1,6 @@
 package org.apereo.cas.configuration;
 
+import org.apereo.cas.configuration.model.CasServers;
 import org.apereo.cas.configuration.model.NotificationsProperties;
 import org.apereo.cas.configuration.model.support.ldap.AbstractLdapProperties;
 import org.apereo.cas.configuration.model.support.ldap.LdapAuthorizationProperties;
@@ -94,6 +95,11 @@ public class CasManagementConfigurationProperties implements Serializable {
     private boolean enableDiscoveryEndpointCall = true;
 
     /**
+     * Path to discovery endpoint.
+     */
+    private String discoveryEndpointPath = "/actuator/discoveryProfile";
+
+    /**
      * Properties for version control.
      */
     private VersionControl versionControl = new VersionControl();
@@ -107,6 +113,11 @@ public class CasManagementConfigurationProperties implements Serializable {
      * Lucence directory for writting indexes.
      */
     private String luceneIndexDir = "/etc/cas/lucene";
+
+    /**
+     * List of cas servers that available in the Dashboard.
+     */
+    private List<CasServers> casServers = new ArrayList<>();
 
     @Getter
     @Setter

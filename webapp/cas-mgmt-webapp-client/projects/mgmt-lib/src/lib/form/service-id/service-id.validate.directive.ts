@@ -3,7 +3,7 @@ import {Directive} from '@angular/core';
 import {UserService} from '../../user.service';
 
 @Directive({
-    selector: '[appValidateServiceId]',
+    selector: '[libValidateServiceId]',
     providers: [{provide: NG_VALIDATORS, useExisting: ValidateServiceIdDirective, multi: true}]
 })
 

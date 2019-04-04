@@ -23,12 +23,12 @@ export class TrackerComponent implements OnInit {
       position: { top: '100px'}
     }).afterClosed().subscribe((result) => {
       if (result) {
-        window.location.href = 'logout.html';
+        window.location.href = '../logout.html';
       } else {
         this.setTimer();
       }
-    })
-  };
+    });
+  }
 
   constructor(public dialog: MatDialog,
               private router: Router,
@@ -48,7 +48,7 @@ export class TrackerComponent implements OnInit {
     if (this.timer) {
       clearTimeout(this.timer);
     }
-    this.timer = setTimeout(this.timerHandler, this.time)
+    this.timer = setTimeout(this.timerHandler, this.time);
   }
 
 }

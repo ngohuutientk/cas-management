@@ -7,7 +7,7 @@ const routes: Routes = [
     loadChildren: './pull/pull.module#PullModule'
   },
   {
-    path: 'submits',
+    path: 'submit',
     loadChildren: './submits/submits.module#SubmitsModule'
   },
   {

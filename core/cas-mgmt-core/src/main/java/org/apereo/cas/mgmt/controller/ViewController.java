@@ -11,6 +11,7 @@ import org.pac4j.core.profile.ProfileManager;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -36,13 +37,39 @@ public class ViewController {
      *
      * @return - ModelAndView
      */
-    @GetMapping({"index.html", "/"})
+    @GetMapping({"management/", "management", "management/index.html"})
     public ModelAndView manage() {
         val model = new HashMap<String, Object>();
         model.put(STATUS, HttpServletResponse.SC_OK);
         model.put("defaultServiceUrl", this.defaultService.getId());
-        return new ModelAndView("index", model);
+        return new ModelAndView("management/index", model);
     }
+
+    /**
+     * Mapped method to return the dashboard entry point.
+     *
+     * @return - ModelAndView
+     */
+    @GetMapping({"dashboard/index.html", "dashboard/", "dashboard"})
+    public ModelAndView dashboard() {
+        val model = new HashMap<String, Object>();
+        model.put(STATUS, HttpServletResponse.SC_OK);
+        return new ModelAndView("dashboard/index", model);
+    }
+
+    /**
+     * Root mapping that navigates to managment or register depending on user role.
+     *
+     * @param request - the request
+     * @param response - the response
+     * @return - ModelAndView
+     */
+    @GetMapping({"cas-management", "/", "index.html"})
+    public ModelAndView root(final HttpServletRequest request, final HttpServletResponse response) {
+        var url = request.getContextPath() + "/management";
+        return new ModelAndView(new RedirectView(url));
+    }
+
 
     /**
      * Authorization failure handling. Simply returns the view name.

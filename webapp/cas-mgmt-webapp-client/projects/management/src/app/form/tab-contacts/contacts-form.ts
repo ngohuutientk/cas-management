@@ -3,8 +3,8 @@ import {
   MgmtFormGroup,
   AbstractRegisteredService,
   MgmtFormControl,
-  DefaultRegisteredServiceContact}
-from 'mgmt-lib';
+  DefaultRegisteredServiceContact
+} from 'mgmt-lib';
 
 export class ContactsForm extends FormGroup implements MgmtFormGroup<AbstractRegisteredService> {
 

@@ -5,8 +5,10 @@
     "ng": "ng",
     "build-lib": "ng build mgmt-lib",
     "start": "ng serve",
-    "build-management": "ng build",
-    "build-management-prod": "ng build --prod",
+    "build-management": "ng build --project management",
+    "build-management-prod": "ng build --prod --project management",
+    "build-dashboard": "ng build --project dashboard",
+    "build-dashboard-prod": "ng build --prod --project dashboard",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

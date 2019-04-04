@@ -15,10 +15,10 @@ declare var ace: any;
 
 export class EditorComponent implements OnInit {
   @Input()
-  mode: string = 'text';
+  mode = 'text';
 
   @Input()
-  theme: string = 'default';
+  theme = 'default';
 
   @Output()
   changed: EventEmitter<void> = new EventEmitter<void>();
